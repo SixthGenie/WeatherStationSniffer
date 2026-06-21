@@ -42,7 +42,8 @@ Both the indoor and outdoor temperature blocks are stored across 2 bytes, but th
 int16_t raw_temp = le16(packet, 0x0A) & 0x0FFF;
 double temp_fahrenheit = (raw_temp - 400) * 0.1;
 double temp_celsius = (temp_fahrenheit - 32.0) * (5.0 / 9.0);
----
+```
+
 ### Time-Window Rain Shift
 The dynamic rain arrays (Hour, Day, Week, Month) use high-nibble bit packing. The raw little-endian reading must be right-shifted by 4 bits (>> 4) before parsing decimals:
 
